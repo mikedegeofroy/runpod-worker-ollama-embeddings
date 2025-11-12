@@ -14,7 +14,7 @@ async def handler(job: any):
     engine_class = OllamaOpenAiEngine if job_input.openai_route else OllamaEngine
     engine = engine_class()  # Instantiate the engine
 
-    job = engine.generate(job_input)  # Call generate with job_input
+    job = engine.embeddings(job_input)  # Call generate with job_input
 
     async for batch in job:
         yield batch
